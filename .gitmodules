@@ -64,7 +64,15 @@ fxtag = v3.0.1
 fxrequired = ToplevelRequired
 # Standard Fork to compare to with "git fleximod test" to ensure personal forks aren't committed
 fxDONOTUSEurl = https://github.com/ESCOMP/mizuRoute
-        
+
+[submodule "wrfhydro"]
+path = components/wrfhydro
+url = https://github.com/NCAR/wrf_hydro_nwm_public
+fxtag = v5.4.0
+fxrequired = ToplevelRequired
+# Standard Fork to compare to with "git fleximod test" to ensure personal forks aren't committed
+fxDONOTUSEurl = https://github.com/NCAR/wrf_hydro_nwm_public
+
 [submodule "ccs_config"]
 path = ccs_config
 url = https://github.com/ESMCI/ccs_config_cesm.git

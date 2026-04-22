@@ -111,6 +111,18 @@
     <lname>2000_DATM%GSWP3v1_CLM50%SP_SICE_SOCN_RTM_SGLC_SWAV</lname>
   </compset>
 
+  <!-- compsets for wrfhydro -->
+  <compset>
+    <alias>fooWRFHydro</alias>
+    <!-- <lname>2000_DATM%GSWP3v1_CLM60%SP_SICE_SOCN_WRFHYDRO_SGLC_SWAV</lname> -->
+    <lname>2000_DATM%GSWP3v1_CLM60%SP_SOCN_WRFHYDRO_SGLC_SWAV</lname>
+  </compset>
+
+  <compset>
+    <alias>I2000Clm60SpWRFHydroGsNldas</alias>
+    <lname>2000_DATM%NLDAS2_CLM60%SP_SICE_SOCN_WRFHYDRO_SGLC_SWAV</lname>
+  </compset>
+
   <!-- compsets for mizuRoute -->
   <compset>
     <alias>I2000Clm60SpMizGs</alias>
@@ -458,7 +470,7 @@
     <lname>HIST_DATM%QIA_CLM60%BGC_SICE_SOCN_SROF_SGLC_SWAV</lname>
   </compset>
 
-<!-- 
+<!--
      future scenario compsets
 -->
   <compset>
@@ -673,7 +685,7 @@
     <lname>2000_DATM%CRUv7_CLM45%SP-VIC_SICE_SOCN_RTM_SGLC_SWAV</lname>
   </compset>
 
-<!-- 
+<!--
      IG compsets with active Glacier model
 -->
 

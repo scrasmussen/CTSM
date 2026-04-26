@@ -123,6 +123,11 @@
     <lname>2000_DATM%NLDAS2_CLM60%SP_SICE_SOCN_WRFHYDRO_SGLC_SWAV</lname>
   </compset>
 
+  <compset>
+    <alias>I2000Ctsm50NwpSpNldasWRFHydro</alias>
+    <lname>2000_DATM%NLDAS2_CLM50%NWP-SP_SICE_SOCN_WRFHYDRO_SGLC_SWAV</lname>
+  </compset>
+
   <!-- compsets for mizuRoute -->
   <compset>
     <alias>I2000Clm60SpMizGs</alias>

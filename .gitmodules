@@ -75,16 +75,20 @@ fxDONOTUSEurl = https://github.com/NCAR/wrf_hydro_nwm_public
 
 [submodule "ccs_config"]
 path = ccs_config
-url = https://github.com/ESMCI/ccs_config_cesm.git
-fxtag = ccs_config_cesm1.0.79
+# url = https://github.com/ESMCI/ccs_config_cesm.git
+# fxtag = ccs_config_cesm1.0.79
+url = https://github.com/scrasmussen/ccs_config_cesm.git
+fxtag = fd52b27f030fecb1aca2e596cd6990732222fc5f
 fxrequired = ToplevelRequired
 # Standard Fork to compare to with "git fleximod test" to ensure personal forks aren't committed
 fxDONOTUSEurl = https://github.com/ESMCI/ccs_config_cesm.git
 
 [submodule "cime"]
 path = cime
-url = https://github.com/ESMCI/cime
-fxtag = cime6.1.169
+# url = https://github.com/ESMCI/cime
+# fxtag = cime6.1.169
+url = https://github.com/scrasmussen/cime
+fxtag = a3a500c98cdf4f720d111938671bc76157fd9f35
 fxrequired = ToplevelRequired
 # Standard Fork to compare to with "git fleximod test" to ensure personal forks aren't committed
 fxDONOTUSEurl = https://github.com/ESMCI/cime

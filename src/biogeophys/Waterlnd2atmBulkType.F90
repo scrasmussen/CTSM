@@ -25,6 +25,7 @@ module Waterlnd2atmBulkType
   type, extends(waterlnd2atm_type), public :: waterlnd2atmbulk_type
 
      real(r8), pointer :: h2osoi_vol_grc     (:,:) ! volumetric soil water (0~watsat, m3/m3, nlevgrnd) (for dust model)
+     real(r8), pointer :: h2osoi_liq_grc     (:,:)
    contains
      procedure, public  :: InitBulk
      procedure, private :: InitBulkAllocate
@@ -79,6 +80,7 @@ contains
     begg = bounds%begg; endg= bounds%endg
 
     allocate(this%h2osoi_vol_grc     (begg:endg,1:nlevmaxurbgrnd)) ; this%h2osoi_vol_grc     (:,:) = ival
+    allocate(this%h2osoi_liq_grc     (begg:endg,1:nlevmaxurbgrnd)) ; this%h2osoi_liq_grc     (:,:) = ival
 
   end subroutine InitBulkAllocate
 

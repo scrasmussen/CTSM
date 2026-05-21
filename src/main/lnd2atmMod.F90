@@ -31,6 +31,7 @@ module lnd2atmMod
   use TemperatureType      , only : temperature_type
   use WaterFluxBulkType    , only : waterfluxbulk_type
   use WaterType            , only : water_type
+  use SoilHydrologyType    , only : soilhydrology_type
   use glcBehaviorMod       , only : glc_behavior_type
   use glc2lndMod           , only : glc2lnd_type
   use ColumnType           , only : col
@@ -148,7 +149,7 @@ contains
   !------------------------------------------------------------------------
   subroutine lnd2atm(bounds, &
        atm2lnd_inst, surfalb_inst, temperature_inst, frictionvel_inst, &
-       water_inst, &
+       water_inst, soilhydrology_inst, &
        energyflux_inst, solarabs_inst, drydepvel_inst,  &
        vocemis_inst, fireemis_inst, dust_emis_inst, ch4_inst, glc_behavior, &
        lnd2atm_inst, &
@@ -168,6 +169,7 @@ contains
     type(temperature_type)      , intent(in)    :: temperature_inst
     type(frictionvel_type)      , intent(in)    :: frictionvel_inst
     type(water_type)            , intent(inout) :: water_inst
+	type(soilhydrology_type)    , intent(inout) :: soilhydrology_inst
     type(energyflux_type)       , intent(in)    :: energyflux_inst
     type(solarabs_type)         , intent(in)    :: solarabs_inst
     type(drydepvel_type)        , intent(in)    :: drydepvel_inst
@@ -412,6 +414,36 @@ contains
             water_inst%waterfluxbulk_inst%qflx_drain_perched_col (bounds%begc:bounds%endc), &
             water_inst%waterlnd2atmbulk_inst%qflx_rofliq_drain_perched_grc(bounds%begg:bounds%endg), &
             c2l_scale_type= 'urbanf', l2g_scale_type='unity' )
+
+
+
+       ! addded for CTSM-WRF-Hydro coupling
+       call c2g( bounds, &
+            water_inst%waterfluxbulk_inst%qflx_h2osfc_surf_col (bounds%begc:bounds%endc), &
+            water_inst%waterlnd2atmbulk_inst%qflx_rofliq_h2osfc_surf_grc   (bounds%begg:bounds%endg), &
+            c2l_scale_type= 'urbanf', l2g_scale_type='unity' )
+       call c2g( bounds, &
+            water_inst%waterfluxbulk_inst%qflx_sat_excess_surf_col (bounds%begc:bounds%endc), &
+            water_inst%waterlnd2atmbulk_inst%qflx_rofliq_sat_excess_surf_grc   (bounds%begg:bounds%endg), &
+            c2l_scale_type= 'urbanf', l2g_scale_type='unity' )
+       call c2g( bounds, &
+            water_inst%waterfluxbulk_inst%qflx_infl_excess_surf_col (bounds%begc:bounds%endc), &
+            water_inst%waterlnd2atmbulk_inst%qflx_rofliq_infl_excess_surf_grc   (bounds%begg:bounds%endg), &
+            c2l_scale_type= 'urbanf', l2g_scale_type='unity' )
+
+       call c2g( bounds, &
+            soilhydrology_inst%h2osfc_thresh_col (bounds%begc:bounds%endc), &
+            water_inst%waterlnd2atmbulk_inst%qflx_rofliq_h2osfc_thresh_grc   (bounds%begg:bounds%endg), &
+            c2l_scale_type= 'urbanf', l2g_scale_type='unity' )
+
+       call c2g(bounds, nlevmaxurbgrnd, &
+            water_inst%waterstatebulk_inst%h2osoi_vol_col (bounds%begc:bounds%endc, :), &
+            water_inst%waterlnd2atmbulk_inst%h2osoi_vol_grc    (bounds%begg:bounds%endg, :), &
+            c2l_scale_type= 'urbanf', l2g_scale_type='unity')
+       call c2g(bounds, nlevmaxurbgrnd, &
+            water_inst%waterstatebulk_inst%h2osoi_liq_col (bounds%begc:bounds%endc, :), &
+            water_inst%waterlnd2atmbulk_inst%h2osoi_liq_grc    (bounds%begg:bounds%endg, :), &
+            c2l_scale_type= 'urbanf', l2g_scale_type='unity')
 
     endif
 

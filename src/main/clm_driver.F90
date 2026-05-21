@@ -1375,7 +1375,7 @@ contains
 
     call lnd2atm(bounds_proc,                                            &
          atm2lnd_inst, surfalb_inst, temperature_inst, frictionvel_inst, &
-         water_inst, &
+         water_inst, soilhydrology_inst, &
          energyflux_inst, solarabs_inst, drydepvel_inst,       &
          vocemis_inst, fireemis_inst, dust_emis_inst, ch4_inst, glc_behavior, &
          lnd2atm_inst, &

@@ -100,7 +100,7 @@ path = components/cmeps
 # fxtag = cmeps1.1.37
 url = git@github.com:scrasmussen/CMEPS.git
 # commit from branch cmeps-wrfhydro from cmeps_ff
-fxtag = 78f8d5eec045bb7c1ba6a7df59f36e69134ecfd1
+fxtag = a36df9c5aa375262b9c90b7a9676c82b7fd92b0b
 fxrequired = AlwaysRequired
 # Standard Fork to compare to with "git fleximod test" to ensure personal forks aren't committed
 fxDONOTUSEurl = https://github.com/ESCOMP/CMEPS.git
